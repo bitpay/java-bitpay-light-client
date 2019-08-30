@@ -1,0 +1,7 @@
+com.bitpay.sdk_light
+com.bitpay.sdk_light.model
+com.bitpay.sdk_light.model.Bill
+com.bitpay.sdk_light.model.Invoice
+com.bitpay.sdk_light.model.Rate
+com.bitpay.sdk_light.util
+tests
