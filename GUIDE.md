@@ -6,6 +6,13 @@ This SDK provides a convenient abstraction of BitPay's [cryptographically-secure
 
 You must have a BitPay merchant account to use this SDK.  It's free to [sign-up for a BitPay merchant account](https://bitpay.com/start).
 
+### Usage
+
+This library was built and tested using the Intellij IDE; the source code tree is directly compatible with Other Java IDEs.
+Library dependencies can be downloaded by executing the following command at the root of the library:
+
+You can also look ar the full JavaDoc for reference [here](http://htmlpreview.github.io/?https://github.com/bitpay/java-bitpay-light-client/blob/master/docs/JavaDoc/index.html)
+
 ### Getting your client token
 
 First of all, you need to generate a new POS token on your BitPay's account which will be required to securely connect to the BitPay's API.  
