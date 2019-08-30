@@ -284,7 +284,7 @@ public class BitPayTest {
             setDescription("product-d");
         }});
 
-        Bill bill = new Bill("7", Currency.USD, "agallardo@bitpay.com", items);
+        Bill bill = new Bill("7", Currency.USD, "", items);
         Bill basicBill = null;
         try {
             basicBill = this._bitpay.createBill(bill);
@@ -319,7 +319,7 @@ public class BitPayTest {
             setDescription("product-d");
         }});
 
-        Bill bill = new Bill("7", Currency.EUR, "agallardo@bitpay.com", items);
+        Bill bill = new Bill("7", Currency.EUR, "", items);
         Bill basicBill = null;
         try {
             basicBill = this._bitpay.createBill(bill);
@@ -354,7 +354,7 @@ public class BitPayTest {
             setDescription("product-d");
         }});
 
-        Bill bill = new Bill("7", Currency.USD, "agallardo@bitpay.com", items);
+        Bill bill = new Bill("7", Currency.USD, "", items);
         Bill basicBill = null;
         try {
             basicBill = this._bitpay.createBill(bill);
@@ -389,7 +389,7 @@ public class BitPayTest {
             setDescription("product-d");
         }});
 
-        Bill bill = new Bill("7", Currency.USD, "agallardo@bitpay.com", items);
+        Bill bill = new Bill("7", Currency.USD, "", items);
         Bill basicBill = null;
         try {
             basicBill = this._bitpay.createBill(bill);
@@ -425,7 +425,7 @@ public class BitPayTest {
             setDescription("product-d");
         }});
 
-        Bill bill = new Bill("5", Currency.USD, "agallardo@bitpay.com", items);
+        Bill bill = new Bill("5", Currency.USD, "", items);
         Bill basicBill = null;
         try {
             basicBill = this._bitpay.createBill(bill);
@@ -460,7 +460,7 @@ public class BitPayTest {
             setDescription("product-d");
         }});
 
-        Bill bill = new Bill("7", Currency.USD, "agallardo@bitpay.com", items);
+        Bill bill = new Bill("7", Currency.USD, "", items);
         Bill basicBill = null;
         Bill retrievedBill = null;
         try {
@@ -497,7 +497,7 @@ public class BitPayTest {
             setDescription("product-d");
         }});
 
-        Bill bill = new Bill("7", Currency.USD, "agallardo@bitpay.com", items);
+        Bill bill = new Bill("7", Currency.USD, "", items);
         Bill basicBill;
         String result = "";
         try {
