@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.bitpay</groupId>
+    <artifactId>bitpay_sdk_light</artifactId>
+    <version>1.0.1909</version>
+
+    <name>BitPay Light</name>
+    <description>Light implementation of the BitPay Payment Gateway. This library implements BitPay's Cryptographically Secure RESTful API.</description>
+    <url>https://bitpay.com/</url>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://github.com/bitpay/java-bitpay-light-client/blob/master/LICENSE</url>
+            <distribution>github</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>https://github.com/bitpay/java-bitpay-light-client</url>
+        <connection>scm:git:git://github.com/bitpay/java-bitpay-light-client.git</connection>
+        <developerConnection>scm:git:git@github.com:bitpay/java-bitpay-light-client.git</developerConnection>
+    </scm>
+
+    <developers>
+        <developer>
+            <email>solutions-engineering@bitpay.com</email>
+            <name>Antonio Buedo</name>
+            <url>https://github.com/anbugal</url>
+            <id>anbugal</id>
+        </developer>
+    </developers>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>12</source>
+                    <target>12</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpmime</artifactId>
+            <version>4.5.9</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.10.0.pr1</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13-beta-3</version>
+        </dependency>
+    </dependencies>
+</project>
