@@ -4,7 +4,7 @@
 
     <groupId>com.bitpay</groupId>
     <artifactId>bitpay_sdk_light</artifactId>
-    <version>1.2.1909</version>
+    <version>1.1.1909-RELEASE</version>
     <packaging>jar</packaging>
 
     <name>bitpay-light</name>
