@@ -4,7 +4,7 @@
 
     <groupId>com.bitpay</groupId>
     <artifactId>bitpay_sdk_light</artifactId>
-    <version>1.2.x-SNAPSHOT</version>
+    <version>1.2.1909</version>
     <packaging>jar</packaging>
 
     <name>bitpay-light</name>
@@ -23,7 +23,6 @@
         <url>https://github.com/bitpay/java-bitpay-light-client</url>
         <connection>scm:git:git://github.com/bitpay/java-bitpay-light-client.git</connection>
         <developerConnection>scm:git:git@github.com:bitpay/java-bitpay-light-client.git</developerConnection>
-      <tag>HEAD</tag>
   </scm>
 
     <developers>
