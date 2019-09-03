@@ -105,7 +105,7 @@ public class BitPayTest {
     @Test
     public void testShouldCreateInvoice100Usd() {
         // create an invoice and make sure we receive the correct price value back (USD)
-        Invoice invoice = new Invoice(100.0, Currency.BTC);
+        Invoice invoice = new Invoice(100.0, Currency.USD);
         Invoice basicInvoice = null;
         try {
             invoice = this._bitpay.createInvoice(invoice);
@@ -284,7 +284,7 @@ public class BitPayTest {
             setDescription("product-d");
         }});
 
-        Bill bill = new Bill("7", Currency.USD, "", items);
+        Bill bill = new Bill("7", Currency.USD, "satoshi@merchantemaildomain.com", items);
         Bill basicBill = null;
         try {
             basicBill = this._bitpay.createBill(bill);
@@ -319,7 +319,7 @@ public class BitPayTest {
             setDescription("product-d");
         }});
 
-        Bill bill = new Bill("7", Currency.EUR, "", items);
+        Bill bill = new Bill("7", Currency.EUR, "satoshi@merchantemaildomain.com", items);
         Bill basicBill = null;
         try {
             basicBill = this._bitpay.createBill(bill);
@@ -354,7 +354,7 @@ public class BitPayTest {
             setDescription("product-d");
         }});
 
-        Bill bill = new Bill("7", Currency.USD, "", items);
+        Bill bill = new Bill("7", Currency.USD, "satoshi@merchantemaildomain.com", items);
         Bill basicBill = null;
         try {
             basicBill = this._bitpay.createBill(bill);
@@ -389,7 +389,7 @@ public class BitPayTest {
             setDescription("product-d");
         }});
 
-        Bill bill = new Bill("7", Currency.USD, "", items);
+        Bill bill = new Bill("7", Currency.USD, "satoshi@merchantemaildomain.com", items);
         Bill basicBill = null;
         try {
             basicBill = this._bitpay.createBill(bill);
@@ -425,7 +425,7 @@ public class BitPayTest {
             setDescription("product-d");
         }});
 
-        Bill bill = new Bill("5", Currency.USD, "", items);
+        Bill bill = new Bill("5", Currency.USD, "satoshi@merchantemaildomain.com", items);
         Bill basicBill = null;
         try {
             basicBill = this._bitpay.createBill(bill);
@@ -460,7 +460,7 @@ public class BitPayTest {
             setDescription("product-d");
         }});
 
-        Bill bill = new Bill("7", Currency.USD, "", items);
+        Bill bill = new Bill("7", Currency.USD, "satoshi@merchantemaildomain.com", items);
         Bill basicBill = null;
         Bill retrievedBill = null;
         try {
@@ -497,7 +497,7 @@ public class BitPayTest {
             setDescription("product-d");
         }});
 
-        Bill bill = new Bill("7", Currency.USD, "", items);
+        Bill bill = new Bill("7", Currency.USD, "satoshi@merchantemaildomain.com", items);
         Bill basicBill;
         String result = "";
         try {
