@@ -1,8 +1,10 @@
 package com.bitpay.sdk_light.model.Bill;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Item {
 
     private String _id;
@@ -42,7 +44,7 @@ public class Item {
     }
 
     @JsonProperty("price")
-    protected void setPrice(Double price) {
+    public void setPrice(Double price) {
         this._price = price;
     }
 
@@ -53,7 +55,7 @@ public class Item {
     }
 
     @JsonProperty("quantity")
-    protected void setQuantity(Integer quantity) {
+    public void setQuantity(Integer quantity) {
         this._quantity = quantity;
     }
 }
