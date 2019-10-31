@@ -6,11 +6,16 @@ This SDK provides a convenient abstraction of BitPay's [cryptographically-secure
 
 You must have a BitPay merchant account to use this SDK.  It's free to [sign-up for a BitPay merchant account](https://bitpay.com/start).
 
+If you need a test account, please visit https://test.bitpay.com/dashboard/signup and register for a BitPay merchant test account. Please fill in all questions, so you get a fully working test account.
+If you are looking for a testnet bitcoin wallet to test with, please visit https://bitpay.com/wallet and
+create a new wallet.
+If you need testnet bitcoin please visit a testnet faucet, e.g. https://testnet.coinfaucet.eu/en/ or http://tpfaucet.appspot.com/
+
+For more information about testing, please see https://bitpay.com/docs/testing
+
 ### Usage
 
 This library was built and tested using the Intellij IDE; the source code tree is directly compatible with Other Java IDEs.
-Library dependencies can be downloaded by executing the following command at the root of the library:
-
 You can also look ar the full JavaDoc for reference [here](http://htmlpreview.github.io/?https://github.com/bitpay/java-bitpay-light-client/blob/master/docs/JavaDoc/index.html)
 
 ### Getting your client token

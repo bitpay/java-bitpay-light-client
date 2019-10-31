@@ -36,16 +36,22 @@ public class Invoice {
     private String _id;
     private String _url;
     private String _status;
-    private String _lowFeeDetected;
-    private String _invoiceTime;
+    private boolean _lowFeeDetected;
+    private long _invoiceTime;
     private long _expirationTime;
     private long _currentTime;
-    private List<InvoiceTransaction> _transactions;
     private String _exceptionStatus;
-    private String _refundAddressRequestPending;
+    private long _targetConfirmations;
+    private List<InvoiceTransaction> _transactions;
+    private List<Hashtable<String, Hashtable<String, String>>> _refundAddresses;
+    private boolean _refundAddressRequestPending;
+    private String _buyerProvidedEmail;
     private InvoiceBuyerProvidedInfo _invoiceBuyerProvidedInfo = new InvoiceBuyerProvidedInfo();
     private SupportedTransactionCurrencies _supportedTransactionCurrencies = new SupportedTransactionCurrencies();
     private MinerFees _minerFees = new MinerFees();
+    private Shopper _shopper = new Shopper();
+    private String _billId;
+    private RefundInfo _refundInfo;
     private PaymentCodes _paymentCodes = new PaymentCodes();
     private boolean _extendedNotifications = false;
 
@@ -319,22 +325,22 @@ public class Invoice {
     }
 
     @JsonIgnore
-    public String getLowFeeDetected() {
+    public Boolean getLowFeeDetected() {
         return _lowFeeDetected;
     }
 
     @JsonProperty("lowFeeDetected")
-    public void setLowFeeDetected(String _lowFeeDetected) {
+    public void setLowFeeDetected(Boolean _lowFeeDetected) {
         this._lowFeeDetected = _lowFeeDetected;
     }
 
     @JsonIgnore
-    public String getInvoiceTime() {
+    public long getInvoiceTime() {
         return _invoiceTime;
     }
 
     @JsonProperty("invoiceTime")
-    public void setInvoiceTime(String _invoiceTime) {
+    public void setInvoiceTime(long _invoiceTime) {
         this._invoiceTime = _invoiceTime;
     }
 
@@ -379,13 +385,43 @@ public class Invoice {
     }
 
     @JsonIgnore
-    public String getRefundAddressRequestPending() {
+    public long getTargetConfirmations() {
+        return _targetConfirmations;
+    }
+
+    @JsonProperty("targetConfirmations")
+    public void setTargetConfirmations(long _targetConfirmations) {
+        this._targetConfirmations = _targetConfirmations;
+    }
+
+    @JsonIgnore
+    public List<Hashtable<String, Hashtable<String, String>>> getRefundAddresses() {
+        return _refundAddresses;
+    }
+
+    @JsonProperty("refundAddresses")
+    public void setRefundAddresses(List<Hashtable<String, Hashtable<String, String>>> _refundAddresses) {
+        this._refundAddresses = _refundAddresses;
+    }
+
+    @JsonIgnore
+    public boolean getRefundAddressRequestPending() {
         return _refundAddressRequestPending;
     }
 
     @JsonProperty("refundAddressRequestPending")
-    public void setRefundAddressRequestPending(String _refundAddressRequestPending) {
+    public void setRefundAddressRequestPending(boolean _refundAddressRequestPending) {
         this._refundAddressRequestPending = _refundAddressRequestPending;
+    }
+
+    @JsonIgnore
+    public String getBuyerProvidedEmail() {
+        return _buyerProvidedEmail;
+    }
+
+    @JsonProperty("buyerProvidedEmail")
+    public void setBuyerProvidedEmail(String _buyerProvidedEmail) {
+        this._buyerProvidedEmail = _buyerProvidedEmail;
     }
 
     @JsonIgnore
@@ -416,6 +452,36 @@ public class Invoice {
     @JsonProperty("minerFees")
     public void setMinerFees(MinerFees _minerFees) {
         this._minerFees = _minerFees;
+    }
+
+    @JsonIgnore
+    public Shopper getShopper() {
+        return _shopper;
+    }
+
+    @JsonProperty("shopper")
+    public void setShopper(Shopper _shopper) {
+        this._shopper = _shopper;
+    }
+
+    @JsonIgnore
+    public String getBillId() {
+        return _billId;
+    }
+
+    @JsonProperty("billId")
+    public void setBillId(String _billId) {
+        this._billId = _billId;
+    }
+
+    @JsonIgnore
+    public RefundInfo getRefundInfo() {
+        return _refundInfo;
+    }
+
+    @JsonProperty("refundInfo")
+    public void setRefundInfo(RefundInfo _refundInfo) {
+        this._refundInfo = _refundInfo;
     }
 
     @JsonIgnore

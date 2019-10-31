@@ -10,6 +10,7 @@ import com.bitpay.sdk_light.model.Rate.*;
 import org.junit.Before;
 import org.junit.Test;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -21,6 +22,7 @@ public class BitPayTest {
     private final static String _token = "Hn2WCJfDcVKT5kzS8YST33WghmUV3n7WDRKh5mhk4bW6";
     private final static double EPSILON = .001;
     private final static double BTC_EPSILON = .000000001;
+    private Invoice basicInvoice;
 
     @Before
     public void setUp() throws BitPayException {
@@ -36,6 +38,45 @@ public class BitPayTest {
         try {
             basicInvoice = _bitpay.createInvoice(invoice);
         } catch (BitPayException e) {
+            e.printStackTrace();
+            fail(e.getMessage());
+        }
+        assertNotNull(basicInvoice.getId());
+    }
+
+    @Test
+    public void testShouldCreateInvoiceBTC() {
+        Invoice invoice = new Invoice(50.0, "USD");
+        invoice.setPaymentCurrencies(Arrays.asList(Currency.BTC));
+        try {
+            basicInvoice = _bitpay.createInvoice(invoice);
+        } catch (Exception e) {
+            e.printStackTrace();
+            fail(e.getMessage());
+        }
+        assertNotNull(basicInvoice.getId());
+    }
+
+    @Test
+    public void testShouldCreateInvoiceBCH() {
+        Invoice invoice = new Invoice(50.0, "USD");
+        invoice.setPaymentCurrencies(Arrays.asList(Currency.BCH));
+        try {
+            basicInvoice = _bitpay.createInvoice(invoice);
+        } catch (Exception e) {
+            e.printStackTrace();
+            fail(e.getMessage());
+        }
+        assertNotNull(basicInvoice.getId());
+    }
+
+    @Test
+    public void testShouldCreateInvoiceETH() {
+        Invoice invoice = new Invoice(50.0, "USD");
+        invoice.setPaymentCurrencies(Arrays.asList(Currency.ETH));
+        try {
+            basicInvoice = _bitpay.createInvoice(invoice);
+        } catch (Exception e) {
             e.printStackTrace();
             fail(e.getMessage());
         }
@@ -82,8 +123,8 @@ public class BitPayTest {
             e.printStackTrace();
             fail(e.getMessage());
         }
-        assertNotNull(basicInvoice.getPaymentTotals().getBTC());
-        assertNotNull(basicInvoice.getPaymentTotals().getBCH());
+        assertNotNull(basicInvoice.getPaymentTotals().getBtc());
+        assertNotNull(basicInvoice.getPaymentTotals().getBch());
     }
 
     @Test
