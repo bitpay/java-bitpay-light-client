@@ -28,9 +28,9 @@ import java.util.*;
 
 /**
  * @author Antonio Buedo
- * @version 1.2.1910
+ * @version 1.2.1911
  * See bitpay.com/api for more information.
- * date 01.09.2019
+ * date 06.11.2019
  */
 
 public class Client {
