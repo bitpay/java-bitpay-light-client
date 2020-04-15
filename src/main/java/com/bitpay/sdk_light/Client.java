@@ -25,17 +25,21 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
-
 /**
+ * <img src="https://bitpay.com/_nuxt/img/1c0494b.svg" width="120" alt="BitPay">
+ * <h1>BitPay Java light client</h1>
+ * Light implementation of the client for the BitPay's Cryptographically Secure RESTful API.
+ * <p>
+ * See <a href="https://bitpay.com/docs">bitpay.com/docs</a> for more information.
+ *
  * @author Antonio Buedo
- * @version 1.3.1912
- * See bitpay.com/api for more information.
- * date 05.12.2019
+ * @version 1.6.2004
+ * @since 15.04.2020
  */
 
 public class Client {
 
-    private static final BitPayLogger _log = new BitPayLogger(BitPayLogger.DEBUG);
+    private static BitPayLogger _log = new BitPayLogger(BitPayLogger.OFF);
     private String _env;
     private String _token;
     private String _baseUrl;
@@ -257,6 +261,8 @@ public class Client {
             }
             get.addHeader("x-bitpay-plugin-info", Env.BitpayPluginInfo);
             get.addHeader("x-accept-version", Env.BitpayApiVersion);
+            get.addHeader("x-bitpay-api-frame", Env.BitpayApiFrame);
+            get.addHeader("x-bitpay-api-frame-version", Env.BitpayApiFrameVersion);
 
 
             _log.info(get.toString());
@@ -278,6 +284,8 @@ public class Client {
             post.setEntity(new ByteArrayEntity(json.getBytes(StandardCharsets.UTF_8)));
             post.addHeader("x-accept-version", Env.BitpayApiVersion);
             post.addHeader("x-bitpay-plugin-info", Env.BitpayPluginInfo);
+            post.addHeader("x-bitpay-api-frame", Env.BitpayApiFrame);
+            post.addHeader("x-bitpay-api-frame-version", Env.BitpayApiFrameVersion);
             post.addHeader("Content-Type", "application/json");
 
             _log.info(post.toString());
@@ -345,5 +353,14 @@ public class Client {
         int Max = 99999999;
 
         return Min + (int) (Math.random() * ((Max - Min) + 1)) + "";
+    }
+
+    /**
+     * Sets the logger level of reporting.
+     *
+     * @param loggerLevel int BitPayLogger constant (OFF, INFO, WARN, ERR, DEBUG)
+     */
+    public void setLoggerLevel(int loggerLevel) {
+        _log = new BitPayLogger(loggerLevel);
     }
 }

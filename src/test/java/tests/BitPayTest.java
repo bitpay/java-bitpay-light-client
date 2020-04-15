@@ -7,6 +7,7 @@ import com.bitpay.sdk_light.model.Bill.*;
 import com.bitpay.sdk_light.model.Currency;
 import com.bitpay.sdk_light.model.Invoice.*;
 import com.bitpay.sdk_light.model.Rate.*;
+import com.bitpay.sdk_light.util.BitPayLogger;
 import org.junit.Before;
 import org.junit.Test;
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ public class BitPayTest {
     public void setUp() throws BitPayException {
         // Initialize the BitPay object to be used in the following tests
         _bitpay = new Client(_token, _environment);
+        _bitpay.setLoggerLevel(BitPayLogger.DEBUG);
     }
 
     @Test
@@ -109,22 +111,6 @@ public class BitPayTest {
             fail(e.getMessage());
         }
         assertEquals(InvoiceStatus.New, basicInvoice.getStatus());
-    }
-
-    @Test
-    public void testShouldGetInvoiceBtcPrice() {
-        // create an invoice and make sure we receive values for the Bitcoin Cash and Bitcoin fields, respectively
-        Invoice invoice = new Invoice(10.0, Currency.USD);
-        Invoice basicInvoice = null;
-        try {
-            invoice = this._bitpay.createInvoice(invoice);
-            basicInvoice = this._bitpay.getInvoice(invoice.getId());
-        } catch (BitPayException e) {
-            e.printStackTrace();
-            fail(e.getMessage());
-        }
-        assertNotNull(basicInvoice.getPaymentTotals().getBtc());
-        assertNotNull(basicInvoice.getPaymentTotals().getBch());
     }
 
     @Test

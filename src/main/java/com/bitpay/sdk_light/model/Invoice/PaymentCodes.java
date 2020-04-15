@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
+@Deprecated //TODO remove in version 2.0
 public class PaymentCodes {
 
     private PaymentCode _btc = new PaymentCode();

@@ -2,11 +2,10 @@ package com.bitpay.sdk_light.model.Invoice;
 
 import com.bitpay.sdk_light.BitPayException;
 import com.bitpay.sdk_light.model.Currency;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 
@@ -43,7 +42,7 @@ public class Invoice {
     private String _exceptionStatus;
     private long _targetConfirmations;
     private List<InvoiceTransaction> _transactions;
-    private List<Hashtable<String, Hashtable<String, String>>> _refundAddresses;
+    private ArrayList _refundAddresses;
     private boolean _refundAddressRequestPending;
     private String _buyerProvidedEmail;
     private InvoiceBuyerProvidedInfo _invoiceBuyerProvidedInfo = new InvoiceBuyerProvidedInfo();
@@ -51,16 +50,26 @@ public class Invoice {
     private MinerFees _minerFees = new MinerFees();
     private Shopper _shopper = new Shopper();
     private String _billId;
-    private RefundInfo _refundInfo;
-    private PaymentCodes _paymentCodes = new PaymentCodes();
+    private ArrayList<RefundInfo> _refundInfo;
+
+    @Deprecated //TODO remove in version 2.0
+    private PaymentCodes _paymentCodes = null;
     private boolean _extendedNotifications = false;
 
     private String _transactionCurrency;
-    private long _amountPaid;
+    private BigDecimal _amountPaid;
     private Hashtable<String, Hashtable<String, String>> _exchangeRates;
+
+    @Deprecated //TODO remove in version 2.0
     private PaymentTotal _paymentTotals;
+
+    @Deprecated //TODO remove in version 2.0
     private PaymentTotal _paymentSubtotals;
+
+    @Deprecated //TODO remove in version 2.0
     private PaymentTotal _paymentDisplayTotals;
+
+    @Deprecated //TODO remove in version 2.0
     private PaymentTotal _paymentDisplaySubTotals;
 
     /**
@@ -395,12 +404,12 @@ public class Invoice {
     }
 
     @JsonIgnore
-    public List<Hashtable<String, Hashtable<String, String>>> getRefundAddresses() {
+    public ArrayList getRefundAddresses() {
         return _refundAddresses;
     }
 
     @JsonProperty("refundAddresses")
-    public void setRefundAddresses(List<Hashtable<String, Hashtable<String, String>>> _refundAddresses) {
+    public void setRefundAddresses(ArrayList _refundAddresses) {
         this._refundAddresses = _refundAddresses;
     }
 
@@ -475,12 +484,12 @@ public class Invoice {
     }
 
     @JsonIgnore
-    public RefundInfo getRefundInfo() {
+    public ArrayList<RefundInfo> getRefundInfo() {
         return _refundInfo;
     }
 
     @JsonProperty("refundInfo")
-    public void setRefundInfo(RefundInfo _refundInfo) {
+    public void setRefundInfo(ArrayList<RefundInfo> _refundInfo) {
         this._refundInfo = _refundInfo;
     }
 
@@ -494,63 +503,73 @@ public class Invoice {
         this._transactionCurrency = _transactionCurrency;
     }
 
+    @Deprecated //TODO remove in version 2.0
     @JsonIgnore
     public PaymentCodes getPaymentCodes() {
         return _paymentCodes;
     }
 
+    @Deprecated //TODO remove in version 2.0
     @JsonProperty("paymentCodes")
     public void setPaymentCodes(PaymentCodes _paymentCodes) {
-        this._paymentCodes = _paymentCodes;
+        this._paymentCodes = null;
     }
 
     @JsonIgnore
+    @Deprecated //TODO remove in version 2.0
     public PaymentTotal getPaymentSubtotals() {
         return _paymentSubtotals;
     }
 
     @JsonProperty("paymentSubtotals")
+    @Deprecated //TODO remove in version 2.0
     public void setPaymentSubtotals(PaymentTotal _paymentSubtotals) {
-        this._paymentSubtotals = _paymentSubtotals;
+        this._paymentSubtotals = null;
     }
 
     @JsonIgnore
+    @Deprecated //TODO remove in version 2.0
     public PaymentTotal getPaymentTotals() {
         return _paymentTotals;
     }
 
     @JsonProperty("paymentTotals")
+    @Deprecated //TODO remove in version 2.0
     public void setPaymentTotals(PaymentTotal _paymentTotals) {
-        this._paymentTotals = _paymentTotals;
+        this._paymentTotals = null;
     }
 
     @JsonIgnore
+    @Deprecated //TODO remove in version 2.0
     public PaymentTotal getPaymentDisplayTotals() {
         return _paymentDisplayTotals;
     }
 
     @JsonProperty("paymentDisplayTotals")
+    @Deprecated //TODO remove in version 2.0
     public void setPaymentDisplayTotals(PaymentTotal _paymentDisplayTotals) {
-        this._paymentDisplayTotals = _paymentDisplayTotals;
+        this._paymentDisplayTotals = null;
     }
 
     @JsonIgnore
+    @Deprecated //TODO remove in version 2.0
     public PaymentTotal getPaymentDisplaySubTotals() {
         return _paymentDisplaySubTotals;
     }
 
     @JsonProperty("paymentDisplaySubTotals")
+    @Deprecated //TODO remove in version 2.0
     public void setPaymentDisplaySubTotals(PaymentTotal _paymentDisplaySubTotals) {
-        this._paymentDisplaySubTotals = _paymentDisplaySubTotals;
+        this._paymentDisplaySubTotals = null;
     }
 
     @JsonIgnore
-    public long getAmountPaid() {
+    public BigDecimal getAmountPaid() {
         return _amountPaid;
     }
 
     @JsonProperty("amountPaid")
-    public void setAmountPaid(long _amountPaid) {
+    public void setAmountPaid(BigDecimal _amountPaid) {
         this._amountPaid = _amountPaid;
     }
 

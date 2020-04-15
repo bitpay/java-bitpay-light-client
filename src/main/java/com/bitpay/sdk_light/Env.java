@@ -6,5 +6,7 @@ public class Env {
     static final String TestUrl = "https://test.bitpay.com/";
     static final String ProdUrl = "https://bitpay.com/";
     static final String BitpayApiVersion = "2.0.0";
-    static final String BitpayPluginInfo = "BitPay_Java_Light_Client_v1.3.1912";
+    static final String BitpayPluginInfo = "BitPay_Java_Light_Client_v1.6.2004";
+    static final String BitpayApiFrame = "custom";
+    static final String BitpayApiFrameVersion = "1.0.0";
 }

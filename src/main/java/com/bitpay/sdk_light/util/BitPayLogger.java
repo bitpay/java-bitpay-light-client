@@ -2,13 +2,13 @@ package com.bitpay.sdk_light.util;
 
 public class BitPayLogger {
 
-    private static final int OFF = 0;
-    private static final int INFO = 1;
-    private static final int WARN = 2;
-    private static final int ERR = 3;
+    public static final int OFF = 0;
+    public static final int INFO = 1;
+    public static final int WARN = 2;
+    public static final int ERR = 3;
     public static final int DEBUG = 4;
 
-    private int _level;
+    int _level = OFF;
 
     public BitPayLogger(int level) {
         _level = level;
