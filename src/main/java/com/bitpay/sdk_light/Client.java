@@ -25,12 +25,16 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
-
 /**
+ * <img src="https://bitpay.com/_nuxt/img/1c0494b.svg" width="120" alt="BitPay">
+ * <h1>BitPay Java light client</h1>
+ * Light implementation of the client for the BitPay's Cryptographically Secure RESTful API.
+ * <p>
+ * See <a href="https://bitpay.com/docs">bitpay.com/docs</a> for more information.
+ *
  * @author Antonio Buedo
  * @version 1.6.2004
- * @info See bitpay.com/api for more information.
- * @date 15.04.2020
+ * @since 15.04.2020
  */
 
 public class Client {
