@@ -1,6 +1,6 @@
 package com.bitpay.sdk_light.model.Invoice;
 
-import com.bitpay.sdk_light.BitPayException;
+import com.bitpay.sdk_light.exceptions.BitPayException;
 import com.bitpay.sdk_light.model.Currency;
 import com.fasterxml.jackson.annotation.*;
 
@@ -22,8 +22,10 @@ public class Invoice {
     private String _notificationURL = "";
     private String _transactionSpeed = "";
     private boolean _fullNotifications = false;
+    private boolean _autoRedirect = false;
     private String _notificationEmail = "";
     private String _redirectURL = "";
+    private String _closeURL = "";
     private String _orderId = "";
     private String _itemDesc = "";
     private String _itemCode = "";
@@ -36,6 +38,10 @@ public class Invoice {
     private String _url;
     private String _status;
     private boolean _lowFeeDetected;
+    private boolean _nonPayProPaymentReceived;
+    private boolean _jsonPayProRequired = false;
+    private BigDecimal _underpaidAmount;
+    private BigDecimal _overpaidAmount;
     private long _invoiceTime;
     private long _expirationTime;
     private long _currentTime;
@@ -58,6 +64,7 @@ public class Invoice {
 
     private String _transactionCurrency;
     private BigDecimal _amountPaid;
+    private String _displayAmountPaid;
     private Hashtable<String, Hashtable<String, String>> _exchangeRates;
 
     @Deprecated //TODO remove in version 2.0
@@ -135,7 +142,7 @@ public class Invoice {
     @JsonProperty("currency")
     public void setCurrency(String _currency) throws BitPayException {
         if (!Currency.isValid(_currency))
-            throw new BitPayException("Error: currency code must be a type of Model.Currency");
+            throw new BitPayException(null, "Error: currency code must be a type of Model.Currency");
 
         this._currency = _currency;
     }
@@ -219,6 +226,17 @@ public class Invoice {
     public void setFullNotifications(boolean _fullNotifications) {
         this._fullNotifications = _fullNotifications;
     }
+    
+    @JsonProperty("autoRedirect")
+    @JsonInclude(JsonInclude.Include.NON_DEFAULT)
+    public boolean getAutoRedirect() {
+        return _autoRedirect;
+    }
+
+    @JsonProperty("autoRedirect")
+    public void setAutoRedirect(boolean _autoRedirect) {
+        this._autoRedirect = _autoRedirect;
+    }
 
     @JsonProperty("extendedNotifications")
     @JsonInclude(JsonInclude.Include.NON_DEFAULT)
@@ -251,6 +269,17 @@ public class Invoice {
     @JsonProperty("redirectURL")
     public void setRedirectURL(String _redirectURL) {
         this._redirectURL = _redirectURL;
+    }
+    
+    @JsonProperty("closeURL")
+    @JsonInclude(JsonInclude.Include.NON_DEFAULT)
+    public String getCloseURL() {
+        return _closeURL;
+    }
+
+    @JsonProperty("closeURL")
+    public void setCloseURL(String _closeURL) {
+        this._closeURL = _closeURL;
     }
 
     @JsonProperty("physical")
@@ -341,6 +370,46 @@ public class Invoice {
     @JsonProperty("lowFeeDetected")
     public void setLowFeeDetected(Boolean _lowFeeDetected) {
         this._lowFeeDetected = _lowFeeDetected;
+    }
+    
+    @JsonIgnore
+    public boolean getNonPayProPaymentReceived() {
+        return _nonPayProPaymentReceived;
+    }
+
+    @JsonProperty("nonPayProPaymentReceived")
+    public void setNonPayProPaymentReceived(boolean _nonPayProPaymentReceived) {
+        this._nonPayProPaymentReceived = _nonPayProPaymentReceived;
+    }
+    
+    @JsonIgnore
+    public boolean getJsonPayProRequired() {
+        return _jsonPayProRequired;
+    }
+
+    @JsonProperty("jsonPayProRequired")
+    public void setJsonPayProRequired(boolean _jsonPayProRequired) {
+        this._jsonPayProRequired = _jsonPayProRequired;
+    }
+    
+    @JsonIgnore
+    public BigDecimal getUnderPaidAmount() {
+        return _underpaidAmount;
+    }
+
+    @JsonProperty("underpaidAmount")
+    public void setUnderPaidAmount(BigDecimal _underpaidAmount) {
+        this._underpaidAmount = _underpaidAmount;
+    }
+    
+    @JsonIgnore
+    public BigDecimal getOverPaidAmount() {
+        return _overpaidAmount;
+    }
+
+    @JsonProperty("overpaidAmount")
+    public void setOverPaidAmount(BigDecimal _overpaidAmount) {
+        this._overpaidAmount = _overpaidAmount;
     }
 
     @JsonIgnore
@@ -571,6 +640,17 @@ public class Invoice {
     @JsonProperty("amountPaid")
     public void setAmountPaid(BigDecimal _amountPaid) {
         this._amountPaid = _amountPaid;
+    }
+    
+    @JsonProperty("displayAmountPaid")
+    @JsonInclude(JsonInclude.Include.NON_DEFAULT)
+    public String getDisplayAmountPaid() {
+        return _displayAmountPaid;
+    }
+
+    @JsonProperty("displayAmountPaid")
+    public void setDisplayAmountPaid(String _displayAmountPaid) {
+        this._displayAmountPaid = _displayAmountPaid;
     }
 
     @JsonIgnore

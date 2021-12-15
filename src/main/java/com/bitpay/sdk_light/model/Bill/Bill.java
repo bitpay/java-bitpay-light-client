@@ -1,6 +1,6 @@
 package com.bitpay.sdk_light.model.Bill;
 
-import com.bitpay.sdk_light.BitPayException;
+import com.bitpay.sdk_light.exceptions.BitPayException;
 import com.bitpay.sdk_light.model.Currency;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -30,7 +30,7 @@ public class Bill {
     private boolean _passProcessingFee;
     private String _status;
     private String _url;
-    private String _createDate;
+    private String _createdDate;
     private String _id;
     private String _merchant;
 
@@ -79,7 +79,7 @@ public class Bill {
     @JsonProperty("currency")
     public void setCurrency(String _currency) throws BitPayException {
         if (!Currency.isValid(_currency))
-            throw new BitPayException("Error: currency code must be a type of Model.Currency");
+            throw new BitPayException(null, "Error: currency code must be a type of Model.Currency");
 
         this._currency = _currency;
     }
@@ -265,13 +265,13 @@ public class Bill {
     }
 
     @JsonIgnore
-    public String getCreateDate() {
-        return _createDate;
+    public String getCreatedDate() {
+        return _createdDate;
     }
 
-    @JsonProperty("createDate")
-    public void setCreateDate(String createDate) {
-        this._createDate = createDate;
+    @JsonProperty("createdDate")
+    public void setCreateDate(String createdDate) {
+        this._createdDate = createdDate;
     }
 
     @JsonIgnore

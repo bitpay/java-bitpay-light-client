@@ -1,6 +1,6 @@
 package com.bitpay.sdk_light.model.Rate;
 
-import com.bitpay.sdk_light.BitPayException;
+import com.bitpay.sdk_light.exceptions.BitPayException;
 import com.bitpay.sdk_light.Client;
 
 import java.util.List;
