@@ -1,6 +1,6 @@
 package tests;
 
-import com.bitpay.sdk_light.BitPayException;
+import com.bitpay.sdk_light.exceptions.BitPayException;
 import com.bitpay.sdk_light.Client;
 import com.bitpay.sdk_light.Env;
 import com.bitpay.sdk_light.model.Bill.*;
@@ -39,7 +39,7 @@ public class BitPayTest {
         Invoice basicInvoice = null;
         try {
             basicInvoice = _bitpay.createInvoice(invoice);
-        } catch (BitPayException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             fail(e.getMessage());
         }
@@ -92,7 +92,7 @@ public class BitPayTest {
         Invoice basicInvoice = null;
         try {
             basicInvoice = _bitpay.createInvoice(invoice);
-        } catch (BitPayException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             fail(e.getMessage());
         }
@@ -106,7 +106,7 @@ public class BitPayTest {
         Invoice basicInvoice = null;
         try {
             basicInvoice = _bitpay.createInvoice(invoice);
-        } catch (BitPayException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             fail(e.getMessage());
         }
@@ -121,7 +121,7 @@ public class BitPayTest {
         try {
             invoice = this._bitpay.createInvoice(invoice);
             basicInvoice = this._bitpay.getInvoice(invoice.getId());
-        } catch (BitPayException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             fail(e.getMessage());
         }
@@ -137,7 +137,7 @@ public class BitPayTest {
         try {
             invoice = this._bitpay.createInvoice(invoice);
             basicInvoice = this._bitpay.getInvoice(invoice.getId());
-        } catch (BitPayException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             fail(e.getMessage());
         }
@@ -153,7 +153,7 @@ public class BitPayTest {
         try {
             invoice = this._bitpay.createInvoice(invoice);
             basicInvoice = this._bitpay.getInvoice(invoice.getId());
-        } catch (BitPayException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             fail(e.getMessage());
         }
@@ -171,7 +171,7 @@ public class BitPayTest {
             invoice = this._bitpay.createInvoice(invoice);
             basicInvoice = this._bitpay.getInvoice(invoice.getId());
             retrievedInvoice = this._bitpay.getInvoice(basicInvoice.getId());
-        } catch (BitPayException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             fail(e.getMessage());
         }
@@ -200,7 +200,7 @@ public class BitPayTest {
         invoice.setPosData("ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890");
         try {
             invoice = this._bitpay.createInvoice(invoice);
-        } catch (BitPayException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             fail(e.getMessage());
         }
@@ -220,7 +220,7 @@ public class BitPayTest {
         try {
             rates = this._bitpay.getRates();
             rateList = rates.getRates();
-        } catch (BitPayException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             fail(e.getMessage());
         }
@@ -234,7 +234,7 @@ public class BitPayTest {
         try {
             rates = this._bitpay.getRates();
             rate = rates.getRate("EUR");
-        } catch (BitPayException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             fail(e.getMessage());
         }
@@ -248,7 +248,7 @@ public class BitPayTest {
         try {
             rates = this._bitpay.getRates();
             rate = rates.getRate("CNY");
-        } catch (BitPayException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             fail(e.getMessage());
         }
@@ -263,7 +263,7 @@ public class BitPayTest {
             rates = this._bitpay.getRates();
             rates.update();
             rateList = rates.getRates();
-        } catch (BitPayException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             fail(e.getMessage());
         }
@@ -280,7 +280,7 @@ public class BitPayTest {
             invoice = this._bitpay.createInvoice(invoice);
             basicInvoice = this._bitpay.getInvoice(invoice.getId());
             retrievedInvoice = this._bitpay.getInvoice(basicInvoice.getId());
-        } catch (BitPayException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             fail(e.getMessage());
         }
@@ -315,7 +315,7 @@ public class BitPayTest {
         Bill basicBill = null;
         try {
             basicBill = this._bitpay.createBill(bill);
-        } catch (BitPayException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             fail(e.getMessage());
         }
@@ -350,7 +350,7 @@ public class BitPayTest {
         Bill basicBill = null;
         try {
             basicBill = this._bitpay.createBill(bill);
-        } catch (BitPayException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             fail(e.getMessage());
         }
@@ -385,7 +385,7 @@ public class BitPayTest {
         Bill basicBill = null;
         try {
             basicBill = this._bitpay.createBill(bill);
-        } catch (BitPayException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             fail(e.getMessage());
         }
@@ -420,7 +420,7 @@ public class BitPayTest {
         Bill basicBill = null;
         try {
             basicBill = this._bitpay.createBill(bill);
-        } catch (BitPayException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             fail(e.getMessage());
         }
@@ -456,7 +456,7 @@ public class BitPayTest {
         Bill basicBill = null;
         try {
             basicBill = this._bitpay.createBill(bill);
-        } catch (BitPayException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             fail(e.getMessage());
         }
@@ -493,7 +493,7 @@ public class BitPayTest {
         try {
             basicBill = this._bitpay.createBill(bill);
             retrievedBill = this._bitpay.getBill(basicBill.getId());
-        } catch (BitPayException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             fail(e.getMessage());
         }
@@ -530,7 +530,7 @@ public class BitPayTest {
         try {
             basicBill = this._bitpay.createBill(bill);
             result = this._bitpay.deliverBill(basicBill.getId(), basicBill.getToken());
-        } catch (BitPayException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             fail(e.getMessage());
         }
